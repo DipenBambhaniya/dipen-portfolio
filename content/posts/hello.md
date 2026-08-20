@@ -1,6 +1,6 @@
 ---
 title: 'What I write about here'
-date: '2026-08-20'
+date: '2026-08-10'
 summary: 'A short note on the kinds of backend problems I find worth writing down — and what to expect from this space.'
 tags: ['meta', 'backend']
 draft: false
