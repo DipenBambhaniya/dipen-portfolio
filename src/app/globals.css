@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode so the toggle can override the OS preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'Cascadia Code', monospace;
+}
+
+:root {
+  --bg: #fbfbfa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f2;
+  --line: #e4e4e1;
+  --fg: #17171a;
+  --muted: #55555f;
+  --faint: #83838f;
+  --accent: #0f7b6c;
+  --accent-soft: #e3f2ef;
+}
+
+.dark {
+  --bg: #0c0c0f;
+  --surface: #131318;
+  --surface-2: #1a1a21;
+  --line: #26262f;
+  --fg: #f2f2f4;
+  --muted: #a3a3b0;
+  --faint: #6f6f7d;
+  --accent: #4ecdb4;
+  --accent-soft: #10241f;
+}
+
+/* Follow the OS when the user has not explicitly chosen a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: #0c0c0f;
+    --surface: #131318;
+    --surface-2: #1a1a21;
+    --line: #26262f;
+    --fg: #f2f2f4;
+    --muted: #a3a3b0;
+    --faint: #6f6f7d;
+    --accent: #4ecdb4;
+    --accent-soft: #10241f;
+  }
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor targets so the sticky nav does not cover section headings. */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* Subtle grid backdrop for the hero. */
+.grid-backdrop {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 20%, transparent 75%);
+}
+
+/* Markdown output from `marked` — styled here rather than with a plugin. */
+.prose-post {
+  color: var(--muted);
+  line-height: 1.75;
+}
+.prose-post > * + * {
+  margin-top: 1.15em;
+}
+.prose-post h2 {
+  color: var(--fg);
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin-top: 2.25em;
+  margin-bottom: 0.6em;
+}
+.prose-post h3 {
+  color: var(--fg);
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+.prose-post a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-post strong {
+  color: var(--fg);
+  font-weight: 620;
+}
+.prose-post ul,
+.prose-post ol {
+  padding-left: 1.35rem;
+}
+.prose-post ul {
+  list-style: disc;
+}
+.prose-post ol {
+  list-style: decimal;
+}
+.prose-post li + li {
+  margin-top: 0.4em;
+}
+.prose-post blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--faint);
+  font-style: italic;
+}
+.prose-post code {
+  font-family: var(--font-mono);
+  font-size: 0.87em;
+  background-color: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.35rem;
+}
+.prose-post pre {
+  background-color: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+}
+.prose-post pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85em;
+}
+.prose-post hr {
+  border-top: 1px solid var(--line);
+}
