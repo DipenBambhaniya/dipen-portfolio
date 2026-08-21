@@ -3,7 +3,7 @@ import { profile } from '@/content/profile';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line print:hidden">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-9 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p className="text-[13px] text-faint">
           Built by {profile.name} with Next.js and Tailwind CSS.
