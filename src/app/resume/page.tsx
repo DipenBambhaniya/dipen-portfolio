@@ -51,7 +51,7 @@ export default function ResumePage() {
           href={withBasePath(profile.resumePath)}
           target="_blank"
           rel="noreferrer noopener"
-          className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
+          className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90 print:hidden"
         >
           <svg
             viewBox="0 0 24 24"
@@ -120,15 +120,23 @@ export default function ResumePage() {
 
               <div className="mt-4 space-y-6 border-l border-line pl-5">
                 {company.roles.map((role) => (
-                  <div key={`${company.company}-${role.project}`}>
+                  <div
+                    key={`${company.company}-${role.project}`}
+                    className="print:break-inside-avoid"
+                  >
                     <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                       <h4 className="text-[15px] font-semibold">
                         {role.project}
                       </h4>
-                      {role.site && (
-                        <span className="font-mono text-xs text-faint">
-                          {role.site}
-                        </span>
+                      {role.site && role.siteUrl && (
+                        <a
+                          href={role.siteUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="font-mono text-xs text-accent hover:underline print:text-faint print:no-underline"
+                        >
+                          {role.site} ↗
+                        </a>
                       )}
                     </div>
                     <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-faint">

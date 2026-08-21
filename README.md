@@ -6,6 +6,7 @@ Lead Software Engineer — Bengaluru, India.
 commerce at scale, primarily in Python and TypeScript, with event-driven
 microservices on AWS.
 
+- **Live site:** [dipenbambhaniya.github.io/dipen-portfolio](https://dipenbambhaniya.github.io/dipen-portfolio/)
 - **Email:** work.dipen@gmail.com
 - **LinkedIn:** [linkedin.com/in/dipen-bambhaniya](https://www.linkedin.com/in/dipen-bambhaniya/)
 - **Resume:** [`/resume`](src/app/resume/page.tsx) on the live site, or [`public/resume.pdf`](public/resume.pdf)

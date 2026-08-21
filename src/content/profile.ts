@@ -160,6 +160,8 @@ export const experience: Company[] = [
       },
       {
         project: 'Appscrip In-House Products',
+        site: 'appscrip.com',
+        siteUrl: 'https://appscrip.com',
         mode: 'On-site',
         period: 'Jul 2016 — 2021',
         highlights: [
