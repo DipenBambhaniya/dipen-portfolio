@@ -61,6 +61,32 @@
   border-color: var(--line);
 }
 
+/* Force the light palette when printing, regardless of the dark-mode toggle,
+   and give the page tight margins for the résumé's one-page PDF export. */
+@media print {
+  @page {
+    size: A4;
+    margin: 9mm 12mm;
+  }
+
+  :root,
+  .dark {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f4f4f2;
+    --line: #dcdcd9;
+    --fg: #101012;
+    --muted: #33333a;
+    --faint: #5c5c66;
+    --accent: #0f7b6c;
+    --accent-soft: #e3f2ef;
+  }
+
+  body {
+    background: #ffffff;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   /* Offset anchor targets so the sticky nav does not cover section headings. */

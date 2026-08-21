@@ -34,7 +34,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     label: 'Languages',
-    items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'No-SQL', 'Java'],
+    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'PHP', 'SQL', 'No-SQL'],
   },
   {
     label: 'Backend & Frameworks',

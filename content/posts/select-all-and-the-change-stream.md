@@ -1,17 +1,24 @@
 ---
-title: "'Select All' is a distributed systems problem"
-date: '2026-08-20'
-summary: 'A one-click bulk action looks like a UI feature. If you have change streams watching that collection, it is actually a load test you did not schedule.'
+title: 'Select All Is Not a UI Feature'
+date: '2026-08-21'
+summary: 'A one-click bulk action looks like a UI feature. If you have change streams watching that collection, it is actually a load test you did not schedule. Notes from building the Offer-service at Truly-Free.'
 tags: ['mongodb', 'change-streams', 'backpressure', 'architecture']
 draft: false
 ---
 
-The request was as simple as product requests get. Sellers build promotional
-offers by choosing which products the offer applies to, one at a time. Fine for
-a boutique with forty SKUs. Absurd for a seller with a hundred thousand.
+I have spent the last decade building backend systems — payments, inventory,
+real-time commerce, and the messaging layers that hold them together. Most of
+what I have learned came from moments like this one: a request that looked
+small on the ticket and was not small at all once it hit production.
 
-So: add a **Select All** button. Apply the offer to the entire catalogue in one
-click.
+## The request was as simple as product requests get
+
+On the Offer-service at Truly-Free, sellers build promotional offers by
+choosing which products the offer applies to — one at a time. Fine for a
+boutique with forty SKUs. Absurd for a seller with a hundred thousand.
+
+So: add a **Select All** button. Apply the offer to the entire catalogue in
+one click.
 
 ## The version that looks finished
 
@@ -124,3 +131,12 @@ instead of a hundred thousand.
 - **Any operation slow enough to need pacing is a background job.** Give it
   persisted state, resumability, and a progress number before you ship it, not
   after the first support ticket.
+
+## Why I'm writing this down
+
+Most of what shows up here will be this kind of note: a trade-off I actually
+had to make, a failure mode I actually hit, or a gap between a third-party API
+and its documentation. Not tutorials, not framework advocacy — if I recommend
+something, it is because I ran it in production and can describe what went
+wrong. If you have hit this same wall from a different angle, I would
+genuinely like to hear about it — the fastest way to reach me is email.

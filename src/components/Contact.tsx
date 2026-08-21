@@ -1,5 +1,6 @@
 import { profile } from '@/content/profile';
 import { withBasePath } from '@/lib/basePath';
+import { maskPhone } from '@/lib/maskPhone';
 import SectionHeading from './SectionHeading';
 
 const channels = [
@@ -10,7 +11,7 @@ const channels = [
   },
   {
     label: 'Phone',
-    value: profile.phone,
+    value: maskPhone(profile.phone),
     href: `tel:${profile.phone.replace(/\s/g, '')}`,
   },
   {
