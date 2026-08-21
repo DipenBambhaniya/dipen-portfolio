@@ -42,11 +42,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Cloud & Infrastructure',
-    items: ['AWS', 'EC2', 'S3', 'SQS', 'DynamoDB', 'Google Cloud', 'Docker'],
+    items: ['AWS', 'AWS Lambda', 'EC2', 'S3', 'SQS', 'DynamoDB', 'Google Cloud', 'Docker'],
   },
   {
     label: 'Messaging & Real-time',
-    items: ['Kafka', 'RabbitMQ', 'MQTT', 'Socket.io', 'Event-Driven Architecture'],
+    items: ['Kafka', 'RabbitMQ', 'MQTT', 'Event-Driven Architecture'],
   },
   {
     label: 'Data Stores',
@@ -54,7 +54,20 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Integrations & Tooling',
-    items: ['Avalara', 'Meta Marketing API', 'Twilio', 'SendGrid', 'Jupyter', 'Git'],
+    items: [
+      'Avalara',
+      'Meta Marketing API',
+      'Spreedly',
+      'Tipalti',
+      'HubSpot',
+      'AfterShip',
+      'Twilio',
+      'SendGrid',
+      'FCM',
+      'Tally',
+      'Jupyter',
+      'Git',
+    ],
   },
 ];
 
@@ -93,11 +106,31 @@ export const experience: Company[] = [
         mode: 'Remote',
         period: 'May 2023 — Present',
         highlights: [
-          'Architected and maintained scalable backend microservices for Payments, Inventory, Products, Livestream, Affiliate, and Meta Audience Sync using Python (Django, FastAPI), NestJS, and Kafka.',
-          'Built high-performance distributed systems using MongoDB, Cassandra, Redis, and MySQL, improving API responsiveness, scalability, and real-time data processing.',
-          'Led backend technical initiatives including third-party integrations (Avalara, Meta), event-driven architecture, production optimization, and cross-team system design collaboration.',
+          'Architected and maintained scalable backend microservices for Payments, Inventory, Products, Livestream, Affiliate, and Meta Audience Sync using Python (Django, FastAPI), NestJS, and Kafka, on MongoDB, Cassandra, Redis, and MySQL.',
+          'Built the Payments service on Spreedly for card tokenization and gateway processing, with Avalara integrated for real-time US sales-tax calculation across jurisdictions.',
+          'Own the Social service (social-v1) end to end — posts, offers, and product+post collections — and am now leading its migration to social-v2 with major architectural changes.',
+          'Built Reviews & Ratings (bulk import and single-user submission flows), buyer-to-seller Q&A, and product FAQ services to support the storefront.',
+          'Led Product Management, Product Category, and Product Attribution services, plus shipment tracking integrated with AfterShip.',
+          'Built the Affiliate program end to end — signup flow, Tipalti payouts, and a two-way HubSpot sync — alongside the Meta Audience Sync pipeline for marketing.',
+          'Built livestream commerce offers (one-time offers and flash sales) and the notification service driving FCM push plus Twilio/SendGrid SMS and email to customers.',
         ],
-        stack: ['Python', 'Django', 'FastAPI', 'NestJS', 'Kafka', 'MongoDB', 'Cassandra', 'Redis', 'MySQL'],
+        stack: [
+          'Python',
+          'Django',
+          'FastAPI',
+          'NestJS',
+          'Kafka',
+          'MongoDB',
+          'Cassandra',
+          'Redis',
+          'MySQL',
+          'Spreedly',
+          'Avalara',
+          'AfterShip',
+          'HubSpot',
+          'Tipalti',
+          'FCM',
+        ],
       },
       {
         project: 'Klub Works',
@@ -106,10 +139,11 @@ export const experience: Company[] = [
         mode: 'Remote',
         period: 'Apr 2022 — Apr 2023',
         highlights: [
-          'Developed and maintained scalable backend applications for Klub using NestJS and PostgreSQL, enabling reliable and high-performance business operations across multiple services.',
+          'Built backend services for brand and store onboarding — signup and application flows for requesting revenue-based financing — using NestJS and PostgreSQL.',
+          'Integrated a partner Bank API to retrieve applicant bank details, implemented as an AWS Lambda function, to power the underwriting flow.',
           'Designed and implemented REST APIs and backend workflows for seamless frontend integration, while collaborating with cross-functional teams to deliver scalable and production-ready solutions in an Agile environment.',
         ],
-        stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'REST APIs', 'Microservices', 'Agile'],
+        stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'AWS Lambda', 'REST APIs', 'Microservices', 'Agile'],
       },
       {
         project: "Byju's",
@@ -129,11 +163,11 @@ export const experience: Company[] = [
         mode: 'On-site',
         period: 'Jul 2016 — 2021',
         highlights: [
-          'Developed and maintained scalable social platform products — WhatsApp, TikTok, Instagram, and Tinder style applications — using Node.js and modern backend technologies, focusing on real-time communication and high-performance APIs.',
-          'Built reusable libraries and shared backend modules to accelerate development, improve code reusability, and reduce overall engineering effort across multiple projects.',
+          'Developed and maintained scalable social platform products — WhatsApp, TikTok, Instagram, and Tinder style applications — covering real-time chat and calling, short-video feeds, and photo/reel sharing, using Node.js with MQTT for real-time messaging.',
+          'Built reusable libraries and shared backend modules — chat delivery, presence, and media pipelines — to accelerate development, improve code reusability, and reduce overall engineering effort across multiple projects.',
           'Contributed to successful product development for platforms like Sales-Paddock and 24 Messenger while collaborating with cross-functional teams in an Agile environment to deliver projects on time.',
         ],
-        stack: ['Node.js', 'Socket.io', 'MongoDB', 'Redis', 'Real-time APIs'],
+        stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis', 'Real-time APIs'],
       },
     ],
   },
@@ -150,10 +184,12 @@ export const experience: Company[] = [
         highlights: [
           'Designed and developed a complete desktop-based Logistics Management System from scratch using Java and MySQL to streamline shipment tracking, billing, inventory, and operational workflows.',
           'Built and maintained core business modules including order management, customer handling, invoice generation, reporting, and inventory tracking to improve operational efficiency.',
+          'Added Excel export and data export to Tally accounting software, and built an in-house accounting module for ledgers, invoicing, and financial reporting.',
+          'Implemented automated email and SMS notifications to customers and clients for container status and payment updates.',
           'Designed optimized MySQL database schemas and implemented backend business logic in Java to ensure reliable performance, data consistency, and scalable application architecture.',
           'Collaborated directly with business stakeholders to gather requirements, customize workflows, troubleshoot production issues, and deliver production-ready solutions within project timelines.',
         ],
-        stack: ['Java', 'MySQL', 'Desktop Application', 'Database Design'],
+        stack: ['Java', 'MySQL', 'Tally Integration', 'Excel Export', 'Email/SMS Notifications', 'Accounting', 'Desktop Application'],
       },
     ],
   },
@@ -178,15 +214,15 @@ export const projects: Project[] = [
     name: 'Payments & Tax Platform',
     context: 'Truly-Free · Appscrip',
     blurb:
-      'Payment microservices handling checkout, settlement, and refunds, with Avalara integrated for real-time US sales-tax calculation across jurisdictions. Built for correctness under retry and partial failure.',
-    stack: ['Python', 'FastAPI', 'Kafka', 'MySQL', 'Avalara'],
+      'Payment microservices built on Spreedly for checkout, settlement, and refunds, with Avalara integrated for real-time US sales-tax calculation across jurisdictions. Built for correctness under retry and partial failure.',
+    stack: ['Python', 'FastAPI', 'Kafka', 'MySQL', 'Spreedly', 'Avalara'],
   },
   {
     name: 'Livestream Commerce Backend',
     context: 'Truly-Free · Appscrip',
     blurb:
-      'Real-time livestream shopping service — viewer presence, in-stream product drops, and cart events pushed over sockets while inventory stays consistent with the catalog services.',
-    stack: ['NestJS', 'Socket.io', 'Redis', 'Kafka'],
+      'Real-time livestream shopping service — one-time offers and flash sales pushed to viewers over MQTT while inventory stays consistent with the catalog services.',
+    stack: ['NestJS', 'MQTT', 'Redis', 'Kafka'],
   },
   {
     name: 'Meta Audience Sync',
@@ -199,8 +235,22 @@ export const projects: Project[] = [
     name: 'Inventory & Product Catalog Services',
     context: 'Truly-Free · Appscrip',
     blurb:
-      'Distributed catalog and stock-tracking services backed by a polyglot data layer — Cassandra for write-heavy movement history, MongoDB for product documents, Redis for read paths.',
+      'Distributed catalog, product category/attribution, and stock-tracking services backed by a polyglot data layer — Cassandra for write-heavy movement history, MongoDB for product documents, Redis for read paths.',
     stack: ['Django', 'MongoDB', 'Cassandra', 'Redis'],
+  },
+  {
+    name: 'Affiliate Program & Payouts',
+    context: 'Truly-Free · Appscrip',
+    blurb:
+      'Affiliate signup flow through to payout, with Tipalti handling affiliate payments and a two-way HubSpot sync keeping affiliate and marketing data consistent.',
+    stack: ['Python', 'FastAPI', 'Tipalti', 'HubSpot'],
+  },
+  {
+    name: 'Reviews, Q&A & Fulfillment Tracking',
+    context: 'Truly-Free · Appscrip',
+    blurb:
+      'Customer engagement services — bulk-imported and single-user reviews and ratings, buyer-to-seller Q&A, and product FAQs — plus shipment tracking integrated with AfterShip and FCM/SMS/email notifications.',
+    stack: ['Python', 'FastAPI', 'AfterShip', 'FCM', 'MySQL'],
   },
   {
     name: 'Revenue-Based Financing Backend',
@@ -220,15 +270,15 @@ export const projects: Project[] = [
     name: 'Real-Time Social Platform Suite',
     context: 'Appscrip In-House',
     blurb:
-      'Messaging, short-video, feed, and matchmaking products built on a shared set of reusable backend modules — chat delivery, presence, media pipelines, and feed ranking.',
-    stack: ['Node.js', 'Socket.io', 'MongoDB', 'Redis'],
+      'Chat, calling, short-video, and matchmaking products (WhatsApp, TikTok, Instagram, and Tinder-style apps) built on a shared set of reusable backend modules — real-time messaging over MQTT, presence, media pipelines, and feed ranking.',
+    stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis'],
   },
   {
     name: 'Logistics Management System',
     context: 'Amardeep Logistics',
     blurb:
-      'End-to-end desktop LMS built from scratch: shipment tracking, billing, invoicing, inventory, and reporting, on a hand-designed relational schema.',
-    stack: ['Java', 'MySQL'],
+      'End-to-end desktop LMS built from scratch: shipment tracking, billing, invoicing, inventory, and reporting, on a hand-designed relational schema — with Excel and Tally export and a built-in accounting module.',
+    stack: ['Java', 'MySQL', 'Tally Integration', 'Accounting'],
   },
 ];
 
@@ -289,5 +339,6 @@ export const navLinks = [
   { href: '/#skills', label: 'Skills' },
   { href: '/#education', label: 'Education' },
   { href: '/blog', label: 'Writing' },
+  { href: '/resume', label: 'Resume' },
   { href: '/#contact', label: 'Contact' },
 ];

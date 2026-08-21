@@ -20,8 +20,8 @@ const channels = [
   },
   {
     label: 'Résumé',
-    value: 'Download PDF',
-    href: withBasePath(profile.resumePath),
+    value: 'View & download',
+    href: withBasePath('/resume/'),
   },
 ];
 
