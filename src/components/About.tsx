@@ -1,11 +1,16 @@
-import { profile } from '@/content/profile';
+import { profile, skillGroups } from '@/content/profile';
 import SectionHeading from './SectionHeading';
+
+const languageCount =
+  skillGroups.find((group) => group.label === 'Languages')?.items.length ?? 0;
+const dataStoreCount =
+  skillGroups.find((group) => group.label === 'Data Stores')?.items.length ?? 0;
 
 const stats = [
   { value: profile.yearsOfExperience, label: 'Years shipping backends' },
   { value: '5', label: 'Products led or built on' },
-  { value: '2', label: 'Primary languages' },
-  { value: '6', label: 'Data stores in production' },
+  { value: String(languageCount), label: 'Languages worked in' },
+  { value: String(dataStoreCount), label: 'Data stores in production' },
 ];
 
 export default function About() {
