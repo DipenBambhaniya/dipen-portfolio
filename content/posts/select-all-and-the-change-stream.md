@@ -1,5 +1,5 @@
 ---
-title: 'Select All Is Not a UI Feature'
+title: 'Offer Service — Select All Products'
 date: '2026-08-21'
 summary: 'A one-click bulk action looks like a UI feature. If you have change streams watching that collection, it is actually a load test you did not schedule. Notes from building the Offer-service at Truly-Free.'
 tags: ['mongodb', 'change-streams', 'backpressure', 'architecture']

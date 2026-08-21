@@ -1,6 +1,6 @@
 ---
 title: 'A Week of Scrum Training, Two Hours a Day'
-date: '2026-08-13'
+date: '2025-04-15'
 summary: 'Truly-Free brought in Scrum Alliance to train every team, two hours a day for a week instead of one long offsite. Notes on why the format mattered.'
 tags: ['process', 'teams']
 draft: false
