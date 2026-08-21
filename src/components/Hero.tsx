@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { profile } from '@/content/profile';
-import { withBasePath } from '@/lib/basePath';
 
 export default function Hero() {
   return (
@@ -35,10 +34,8 @@ export default function Hero() {
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-3">
-          <a
-            href={withBasePath(profile.resumePath)}
-            target="_blank"
-            rel="noreferrer noopener"
+          <Link
+            href="/resume"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
           >
             <svg
@@ -54,7 +51,7 @@ export default function Hero() {
               <path d="M12 3v12M7 11l5 5 5-5M4 20h16" />
             </svg>
             Résumé
-          </a>
+          </Link>
 
           <a
             href={profile.linkedin}
