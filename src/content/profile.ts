@@ -58,6 +58,8 @@ export const skillGroups: SkillGroup[] = [
       'Avalara',
       'Meta Marketing API',
       'Spreedly',
+      'Apple Pay',
+      'Google Pay',
       'Tipalti',
       'HubSpot',
       'AfterShip',
@@ -107,7 +109,8 @@ export const experience: Company[] = [
         period: 'May 2023 — Present',
         highlights: [
           'Architected and maintained scalable backend microservices for Payments, Inventory, Products, Livestream, Affiliate, and Meta Audience Sync using Python (Django, FastAPI), NestJS, and Kafka, on MongoDB, Cassandra, Redis, and MySQL.',
-          'Built the Payments service on Spreedly for card tokenization and gateway processing, with Avalara integrated for real-time US sales-tax calculation across jurisdictions.',
+          'Built the Payments service on Spreedly — cards are tokenized client-side through a Spreedly iFrame, exchanged for a gateway vendor token, then charged server-side, keeping raw card data out of our infrastructure — with Avalara integrated for real-time US sales-tax calculation across jurisdictions.',
+          'Extended checkout from scratch with Apple Pay and Google Pay wallet payments, and a Spreedly Account Updater integration that auto-refreshes stored cards on expiry or re-issue to cut declined charges for returning and subscription customers.',
           'Own the Social service (social-v1) end to end — posts, offers, and product+post collections — and am now leading its migration to social-v2 with major architectural changes.',
           'Built Reviews & Ratings (bulk import and single-user submission flows), buyer-to-seller Q&A, and product FAQ services to support the storefront.',
           'Led Product Management, Product Category, and Product Attribution services, plus shipment tracking integrated with AfterShip.',
@@ -125,6 +128,8 @@ export const experience: Company[] = [
           'Redis',
           'MySQL',
           'Spreedly',
+          'Apple Pay',
+          'Google Pay',
           'Avalara',
           'AfterShip',
           'HubSpot',
@@ -216,8 +221,8 @@ export const projects: Project[] = [
     name: 'Payments & Tax Platform',
     context: 'Truly-Free · Appscrip',
     blurb:
-      'Payment microservices built on Spreedly for checkout, settlement, and refunds, with Avalara integrated for real-time US sales-tax calculation across jurisdictions. Built for correctness under retry and partial failure.',
-    stack: ['Python', 'FastAPI', 'Kafka', 'MySQL', 'Spreedly', 'Avalara'],
+      'Payment microservices built on Spreedly: PCI-safe card capture through a Spreedly iFrame, vendor-token exchange, and server-side charging for checkout, settlement, and refunds. Added Apple Pay and Google Pay wallet checkout and a Spreedly Account Updater flow to keep stored cards alive, with Avalara for real-time US sales-tax across jurisdictions. Built for correctness under retry and partial failure.',
+    stack: ['Python', 'FastAPI', 'Kafka', 'MySQL', 'Spreedly', 'Apple Pay', 'Google Pay', 'Avalara'],
   },
   {
     name: 'Livestream Commerce Backend',
