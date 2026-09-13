@@ -1,16 +1,17 @@
 ---
 title: 'Adding PayPal on Top of Spreedly, Through Braintree'
 date: '2026-09-13'
-summary: 'PayPal was a new checkout option, but not a new payment pipeline. Routing Spreedly through Braintree as the gateway meant the purchase, refund, and retry code we already had for cards did not need to change.'
-tags: ['payments', 'spreedly', 'braintree', 'paypal', 'integrations']
+summary: 'PayPal was a new checkout option, but not a new payment pipeline. The harder part was that our Payments service quietly serves two platforms with two separate gateways, and PayPal had to land on both.'
+tags: ['payments', 'spreedly', 'braintree', 'paypal', 'multi-tenant', 'integrations']
 draft: false
 ---
 
 Card and wallet checkout at Truly-Free already ran on
 [Spreedly](https://www.spreedly.com/), with Apple Pay and Google Pay added on
 top of it earlier this year. This week the business asked for PayPal as a
-checkout option, and the interesting part of the work was how little of the
-existing system had to move to get there.
+checkout option, and the interesting part of the work was less about PayPal
+itself and more about where it had to land: this Payments service serves two
+platforms, on two separate gateways, and PayPal needed both.
 
 ## Where PayPal sits in the chain
 
@@ -47,24 +48,43 @@ No new state machine, no new refund path, no new webhook handling. The
 purchase, settlement, and refund code treats a PayPal-backed token exactly
 like a card-backed one.
 
-## One integration, two storefronts
+## One service, two platforms, separate gateways
 
-This backend serves both trulyfree.com and Truly-Free Home (TFH). TFH does not
-have its own separate payment stack — it places its orders through the same
-Truly-Free payment APIs — so the PayPal option landed on both storefronts from
-a single change to the Payments service, with no per-brand payment code to
-duplicate or keep in sync.
+The Payments service does not serve one storefront — it serves two: the
+Truly-Free (TF) marketplace, where multiple stores, affiliates, and customers
+transact, and Truly-Free Home (TFH), a single-brand store site. TFH used to run
+its payments through [Sticky](https://sticky.io/) entirely outside this
+service; when the business requirement changed, TFH moved onto the same
+Payments service TF already used, rather than staying on its own stack.
+
+"Same service" does not mean "same gateway." TF and TFH each have their own
+Braintree merchant account, so PayPal — and cards, Apple Pay, and Google Pay —
+resolve to different Spreedly/Braintree gateway credentials depending on which
+platform the request came from. We record which platform every request
+belongs to as a plain column on the payment record. It is not used for any
+clever routing logic beyond gateway selection; the honest reason it exists is
+monitoring — being able to see TF and TFH volume, failure rates, and payment
+mix separately, and to know at a glance which gateway account a given
+transaction actually went through.
+
+So adding PayPal was not "add a Braintree gateway" — it was "add a Braintree
+gateway on each platform's Spreedly account," configured and tested twice,
+selected by that same platform column at charge time.
 
 ## What I'd keep from this one
 
 - **Gateway abstraction pays off exactly when a new gateway shows up.**
   Spreedly's job is to make "add another way to pay" a configuration and
-  token-creation change, not a new integration. That's exactly what happened
-  here.
+  token-creation change, not a new integration. That held for both platforms.
 - **The processor behind the gateway is an implementation detail worth
-  hiding.** Our code doesn't know or care that Braintree is in the chain
-  talking to PayPal — and that's the point. If the gateway changes again,
-  the purchase/refund code shouldn't need to.
-- **Shared services should mean shared payment rails.** TFH getting PayPal
-  "for free" only works because it was never given its own payment stack to
-  begin with.
+  hiding.** Our purchase/refund code doesn't know or care that Braintree is in
+  the chain talking to PayPal, or which platform's Braintree account it is —
+  and that's the point.
+- **A cheap discriminator column is worth adding before you need it for
+  logic.** The platform column was added purely for monitoring. It turned out
+  to be exactly the field gateway selection needed once TFH stopped being a
+  separate stack — no migration to bolt it on later.
+- **"One service" is a claim about code, not about credentials.** TF and TFH
+  sharing a Payments service didn't mean sharing a merchant account. Keeping
+  the gateways separate per platform, with the service itself shared, was the
+  actual design decision here.
