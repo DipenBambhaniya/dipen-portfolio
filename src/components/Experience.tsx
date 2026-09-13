@@ -81,6 +81,23 @@ export default function Experience() {
                         </li>
                       ))}
                     </ul>
+
+                    {role.clientProjects && role.clientProjects.length > 0 && (
+                      <div className="mt-3.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[13px]">
+                        <span className="text-faint">Client work:</span>
+                        {role.clientProjects.map((client) => (
+                          <a
+                            key={client.name}
+                            href={client.url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="font-medium text-accent hover:underline"
+                          >
+                            {client.name} ↗
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ol>
