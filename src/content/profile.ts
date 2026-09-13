@@ -69,6 +69,8 @@ export const skillGroups: SkillGroup[] = [
       'SendGrid',
       'FCM',
       'Google Moderation APIs',
+      'Auth0',
+      'RBAC',
       'Tally',
       'Jupyter',
       'Git',
@@ -156,8 +158,9 @@ export const experience: Company[] = [
           'Built backend services for brand and store onboarding — signup and application flows for requesting revenue-based financing — using NestJS and PostgreSQL.',
           'Integrated a partner Bank API to retrieve applicant bank details, implemented as an AWS Lambda function, to power the underwriting flow.',
           'Designed and implemented REST APIs and backend workflows for seamless frontend integration, while collaborating with cross-functional teams to deliver scalable and production-ready solutions in an Agile environment.',
+          'Designed and integrated role-based access control (RBAC) for platform users and internal operations teams, extending the existing Auth0 authentication (login, OTP verification, OTP login, and email verification) with the roles/permissions model, including changes on the Auth0 side to support it.',
         ],
-        stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'AWS Lambda', 'REST APIs', 'Microservices', 'Agile'],
+        stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'AWS Lambda', 'REST APIs', 'Microservices', 'Auth0', 'RBAC', 'Agile'],
       },
       {
         project: "Byju's",
@@ -279,8 +282,8 @@ export const projects: Project[] = [
     name: 'Revenue-Based Financing Backend',
     context: 'Klub Works',
     blurb:
-      'Backend services for Klub’s financing platform — brand onboarding, deal structuring, and repayment workflows exposed as REST APIs to multiple frontends.',
-    stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'REST APIs'],
+      'Backend services for Klub’s financing platform — brand onboarding, deal structuring, and repayment workflows exposed as REST APIs to multiple frontends. Designed and integrated role-based access control (RBAC) for platform users and internal operations teams on top of the existing Auth0 authentication (login, OTP verification/login, email verification), including the required Auth0-side changes.',
+    stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'REST APIs', 'Auth0', 'RBAC'],
   },
   {
     name: 'Learning Platform Services',
