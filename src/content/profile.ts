@@ -183,10 +183,33 @@ export const experience: Company[] = [
         period: 'Jul 2016 — 2021',
         highlights: [
           'Developed and maintained scalable social platform products — WhatsApp, TikTok, Instagram, and Tinder style applications — covering real-time chat and calling, short-video feeds, and photo/reel sharing, using Node.js with MQTT for real-time messaging.',
-          'Built reusable libraries and shared backend modules — chat delivery, presence, and media pipelines — to accelerate development, improve code reusability, and reduce overall engineering effort across multiple projects.',
-          'Contributed to successful product development for platforms like Sales-Paddock and 24 Messenger while collaborating with cross-functional teams in an Agile environment to deliver projects on time.',
+          'Built reusable libraries and shared backend modules — chat delivery, presence, and media pipelines — to accelerate development, improve code reusability, and reduce overall engineering effort across multiple client projects, including 24 Messenger and Sales Paddock below, while collaborating cross-functionally in an Agile environment.',
         ],
         stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis', 'Real-time APIs'],
+      },
+      {
+        project: '24 Messenger',
+        site: '24-messenger.en.softonic.com',
+        siteUrl: 'https://24-messenger.en.softonic.com/android',
+        mode: 'On-site',
+        period: 'Jul 2016 — 2021',
+        highlights: [
+          'Built the backend for 24 Messenger, a secure Android messenger — end-to-end encrypted one-to-one chat carrying text, images, video, and audio, with an in-app audio player for listening to messages and conversations.',
+          'Added a built-in wallet so users could send and receive money to contacts directly inside the chat app.',
+          'Built a social layer on top of messaging — posting, liking, and sharing — plus a Favorites list to surface preferred contacts’ content without swiping the full list, and search across people and topics.',
+        ],
+        stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis', 'End-to-End Encryption', 'Wallet/Payments'],
+      },
+      {
+        project: 'Sales Paddock',
+        site: 'salespaddock.com',
+        siteUrl: 'https://salespaddock.com',
+        mode: 'On-site',
+        period: 'Jul 2016 — 2021',
+        highlights: [
+          'Built backend services for Sales Paddock, a horse-industry marketplace, including a map-based discovery feature so buyers could find horses, tack, and services by location.',
+        ],
+        stack: ['Node.js', 'MongoDB', 'Geolocation', 'REST APIs'],
       },
     ],
   },
@@ -298,6 +321,22 @@ export const projects: Project[] = [
     blurb:
       'Chat, calling, short-video, and matchmaking products (WhatsApp, TikTok, Instagram, and Tinder-style apps) built on a shared set of reusable backend modules — real-time messaging over MQTT, presence, media pipelines, and feed ranking.',
     stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis'],
+  },
+  {
+    name: '24 Messenger',
+    context: 'Appscrip In-House · Android',
+    blurb:
+      'Secure Android messenger built on the shared real-time backend — end-to-end encrypted chat with text, image, video, and audio messages, an in-app audio player, a built-in wallet to send and receive money with contacts, and a lightweight social layer (post, like, share, favorites, search).',
+    stack: ['Node.js', 'MQTT', 'MongoDB', 'Redis', 'End-to-End Encryption', 'Wallet/Payments'],
+    liveUrl: 'https://24-messenger.en.softonic.com/android',
+  },
+  {
+    name: 'Sales Paddock',
+    context: 'Appscrip In-House',
+    blurb:
+      'Marketplace backend for the horse industry, with a map-based discovery feature so buyers can find horses, tack, and services by location.',
+    stack: ['Node.js', 'MongoDB', 'Geolocation', 'REST APIs'],
+    liveUrl: 'https://salespaddock.com',
   },
   {
     name: 'Logistics Management System',
