@@ -11,11 +11,17 @@ export default function Projects() {
           subtitle="Systems I designed or led. Client work is described at the architecture level — no proprietary detail, no public repositories."
         />
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        {/*
+          Blurbs vary a lot in length, so a plain equal-height grid stretches
+          short cards to match their tallest row neighbour and leaves a dead
+          gap above the tag list. Columns let each card size to its own
+          content instead.
+        */}
+        <div className="columns-1 gap-4 sm:columns-2">
           {projects.map((project) => (
             <article
               key={project.name}
-              className="group flex flex-col rounded-xl border border-line bg-surface p-5 transition-colors hover:border-accent/50"
+              className="group mb-4 flex break-inside-avoid flex-col rounded-xl border border-line bg-surface p-5 transition-colors hover:border-accent/50"
             >
               <p className="font-mono text-[11px] uppercase tracking-wide text-faint">
                 {project.context}
@@ -25,7 +31,7 @@ export default function Projects() {
                 {project.name}
               </h3>
 
-              <p className="mt-2.5 flex-1 text-[14px] leading-relaxed text-muted">
+              <p className="mt-2.5 text-[14px] leading-relaxed text-muted">
                 {project.blurb}
               </p>
 
