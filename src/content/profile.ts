@@ -68,6 +68,7 @@ export const skillGroups: SkillGroup[] = [
       'Twilio',
       'SendGrid',
       'FCM',
+      'Google Moderation APIs',
       'Tally',
       'Jupyter',
       'Git',
@@ -116,6 +117,7 @@ export const experience: Company[] = [
           'Extended the Payments service to also serve Truly-Free Home (TFH), a single-brand storefront, migrating it off its prior Sticky-based payment setup when the business requirement changed — one service now handles both TFH and the Truly-Free (TF) marketplace, where multiple stores, affiliates, and customers transact, each platform routed to its own separate Spreedly/Braintree gateway credentials via a platform column recorded on every payment for routing and monitoring.',
           'Added PayPal as a checkout option on top of the existing Spreedly integration for both platforms — Spreedly routes the purchase through each platform’s own Braintree gateway, which settles with PayPal, reusing the same purchase/refund pipeline already built for cards and wallets.',
           'Own the Social service (social-v1) end to end — posts, offers, and product+post collections — and am now leading its migration to social-v2 with major architectural changes.',
+          'Built a content moderation pipeline in social-v1 covering post text, images, and video, plus comments and product images/descriptions — scoring each against Google’s moderation APIs and comparing category scores (toxicity, harassment, unsafe imagery, etc.) against admin-configured thresholds per content type to auto-approve or auto-reject, with a manual force-approve/force-reject override for admins.',
           'Built Reviews & Ratings (bulk import and single-user submission flows), buyer-to-seller Q&A, and product FAQ services to support the storefront.',
           'Led Product Management, Product Category, and Product Attribution services, plus shipment tracking integrated with AfterShip.',
           'Built the Affiliate program end to end — signup flow, Tipalti payouts, and a two-way HubSpot sync — alongside the Meta Audience Sync pipeline for marketing.',
@@ -141,6 +143,7 @@ export const experience: Company[] = [
           'HubSpot',
           'Tipalti',
           'FCM',
+          'Google Moderation APIs',
         ],
       },
       {
@@ -236,6 +239,13 @@ export const projects: Project[] = [
     blurb:
       'Real-time livestream shopping service — one-time offers and flash sales pushed to viewers over MQTT while inventory stays consistent with the catalog services.',
     stack: ['NestJS', 'MQTT', 'Redis', 'Kafka'],
+  },
+  {
+    name: 'Social Platform & Content Moderation',
+    context: 'Truly-Free · Appscrip',
+    blurb:
+      'Own the Social service (social-v1) end to end — posts, offers, and product+post collections — now leading its migration to social-v2. Built the moderation pipeline on top of it: post text/images/video, comments, and product images/descriptions are scored through Google’s moderation APIs and checked against admin-configured thresholds per content type and category to auto-approve or auto-reject, with a manual override for admins to force-approve or force-reject any item.',
+    stack: ['Python', 'MongoDB', 'Google Moderation APIs'],
   },
   {
     name: 'Meta Audience Sync',
